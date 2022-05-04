@@ -3,9 +3,11 @@ package el.ka.filmsslider
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import el.ka.filmsslider.adapter.SliderAdapter
 import el.ka.filmsslider.common.Common
 import el.ka.filmsslider.models.Movie
 import el.ka.filmsslider.retrofit.RetrofitServices
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,6 +38,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setMoviesToSlider(movies: MutableList<Movie>) {
-        Log.d("Movies_Size", movies.size.toString())
+        this.viewPager.adapter = SliderAdapter(this, movies)
+        this.indicators.setupWithViewPager(this.viewPager)
     }
 }

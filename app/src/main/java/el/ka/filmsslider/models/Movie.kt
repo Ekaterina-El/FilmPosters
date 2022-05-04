@@ -7,4 +7,5 @@ data class Movie(
     val firstappearance: String? = null,
     val createdby: String? = null,
     val imageurl: String? = null,
+    val bio: String? = null,
 )
